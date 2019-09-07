@@ -102,3 +102,9 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# Text bavkup files
+*.bak
+
+# Database
+*.sqlite3
