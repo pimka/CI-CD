@@ -1,0 +1,20 @@
+language: python
+python:
+  - '3.6'
+
+deploy:
+  provider: heroku
+  buildpack: python
+  api_key:
+    secure: 418347cd-50f3-4a26-aee4-421482422503
+  strategy: git
+  app: glacial-wave-39358
+  on:
+    repo: pimka/CI-CD
+  run:
+    - "python manage.py migrate"
+    - restart
+
+script: "python manage.py test"
+
+  
