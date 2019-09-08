@@ -11,7 +11,7 @@ from .models import UserModel
 def outside(request):
     if request.method == "POST":
         if request.POST.get('username')==None:
-            return HttpResponse('Error. Input name.')
+            return HttpResponse('Error. Please input name.')
         else:
             return index(add_user(request.POST['username']))
     else:
