@@ -1,0 +1,1 @@
+web: gunicorn rsoi1.wsgi --log-file -
