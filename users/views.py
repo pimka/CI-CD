@@ -1,6 +1,4 @@
-import json
-
-from django.http import HttpResponse, request
+from django.http import HttpResponse, request, JsonResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import ensure_csrf_cookie
 
@@ -26,9 +24,8 @@ def index(filter=None):
         users_list = [ob.to_dict() for ob in UserModel.objects.filter(username=filter)]
     else:
         users_list = [ob.to_dict() for ob in UserModel.objects.all()]
-    context_dict = json.dumps(users_list)
 
-    return HttpResponse(context_dict)
+    return JsonResponse(users_list, safe = False)
 
 def add_user(username):
     return UserModel.objects.get_or_create(username=username)[0]
